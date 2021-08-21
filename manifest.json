@@ -1,0 +1,29 @@
+{
+    "name": "AutoFace",
+    "version": "1",
+    "description" : "auto click",
+    "icons": {
+        "16": "logo.png",
+        "48": "logo.png"
+    },
+    "browser_action":
+    {
+      "default_icon": "logo.png",
+      "default_popup": "popup.html"
+    },
+    "background":{
+      "scripts": ["jquery.js", "background.js"],
+      "persistent": false
+    },
+    "permissions": ["tabs", "activeTab", "<all_urls>", "storage", "background"],
+    "content_scripts": 
+    [
+        {
+            "matches": ["*://*/*"],
+            "js":["jquery.js", "spy.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
+    "manifest_version": 2
+  }
